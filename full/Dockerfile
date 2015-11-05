@@ -1,4 +1,4 @@
-FROM jeedom:jeedom
+FROM jeedom/jeedom
 
 MAINTAINER loic@jeedom.com
 
