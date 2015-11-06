@@ -16,7 +16,27 @@ fi
 if [ -f /var/www/html/core/config/common.config.php ]; then
 	echo 'DB identification file found'
 else
-	echo 'Not DB file found, create it'
+	echo 'Not DB file found, init env'
+	MYSQL_HOST="127.0.0.1"
+	MYSQL_PORT="3306"
+	MYSQL_JEEDOM_DBNAME="jeedom"
+	MYSQL_JEEDOM_USER="jeedom"
+	MYSQL_JEEDOM_PASSWORD=$(cat /dev/urandom | tr -cd 'a-f0-9' | head -c 15)
+	ADMIN_USER="root"
+	export ADMIN_USER
+	ADMIN_PASSWORD=$(cat /dev/urandom | tr -cd 'a-f0-9' | head -c 15)
+	export ADMIN_PASSWORD
+	DB_NAME=${MYSQL_JEEDOM_DBNAME}
+	export DB_NAME
+	DB_USER=${MYSQL_JEEDOM_USER}
+	export DB_USER
+	DB_PASSWORD=${MYSQL_JEEDOM_PASSWORD}
+	export DB_PASSWORD
+	BIND_ADDRESS="127.0.0.1"
+	export BIND_ADDRESS
+	echo 'Init DB'
+	./initdb.sh
+	echo 'Create DB file'
 	cp /var/www/html/core/config/common.config.sample.php /var/www/html/core/config/common.config.php
 	sed -i "s/#HOST#/${MYSQL_HOST}/g" /var/www/html/core/config/common.config.php
 	sed -i "s/#PORT#/${MYSQL_PORT}/g" /var/www/html/core/config/common.config.php
@@ -32,6 +52,9 @@ fi
 echo 'All init complete'
 chmod 755 -R /var/www/html/
 chown -R www-data:www-data /var/www/html/
+
+echo 'Launch mysql jeedom'
+service mysql start
 
 echo 'Launch cron'
 service cron start

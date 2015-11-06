@@ -2,6 +2,19 @@ FROM jeedom/jeedom
 
 MAINTAINER loic@jeedom.com
 
+RUN apt-get update; apt-get install -y \
+    mysql-server \
+    mysql-client
+
+RUN rm -rf /var/lib/mysql/*
+
+ENV MYSQL_DEFAULTS_FILE /mysql-defaults.cnf
+
+ADD initdb.sh /root/initdb.sh
+RUN chmod +x /root/initdb.sh
+ADD init.sh /root/init.sh
+RUN chmod +x /root/init.sh
+
 
 CMD ["/root/init.sh"]
 
