@@ -9,8 +9,8 @@ else
 	cd /root
 	rm -rf /root/jeedom-core-master
 	unzip -q jeedom.zip -d /root
-	cp -R /root/jeedom-core-master/* /var/www/html/
-	cp /root/jeedom-core-master/.htaccess /var/www/html/.htaccess
+	cp -R /root/core-*/* /var/www/html/
+	cp /root/core-*/.htaccess /var/www/html/.htaccess
 fi
 
 if [ -f /var/www/html/core/config/common.config.php ]; then

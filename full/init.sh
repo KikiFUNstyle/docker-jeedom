@@ -36,6 +36,8 @@ else
 	export BIND_ADDRESS
 	echo 'Init DB'
 	./initdb.sh
+	echo 'Start DB'
+	service mysql start
 	echo 'Create DB file'
 	cp /var/www/html/core/config/common.config.sample.php /var/www/html/core/config/common.config.php
 	sed -i "s/#HOST#/${MYSQL_HOST}/g" /var/www/html/core/config/common.config.php
