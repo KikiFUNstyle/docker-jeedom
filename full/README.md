@@ -4,13 +4,16 @@ Cette image est basé sur php7 + apache + mysql et jeedom 2.0. Il est recommand�
 
 A la difference de l'image normal cette image inclus mysql
 
+
 # Variables d'environement
 
 ROOT_PASSWORD : mot de passe root SSH. Optionnel si non précisé le mot de passe sera jeedom. Il est cepedant fortement recommandé de le renseigner
 
+
 # Droits
 
 Il faut lancer le conteneur en mode privilège pour que celui-ci puisse acceder au périphérique (enOcena, Zwave, Edisio....)
+
 
 # Accès au préripherique USB
 
@@ -19,6 +22,7 @@ Pour que jeedom puisse accèder à tous les périphérique USB il faut les monte
 -v /dev/tty*:/dev
 
 ````
+
 
 # Volume de données
 
@@ -29,6 +33,7 @@ Pour pouvoir mettre à jour facilement le conteneur sans impact sur les données
 
 ````
 
+
 # Ports
 
 Il faut rediriger certain port du contenaire vers l'hote pour y avoir accès. Il faut obligatoire rediriger le port 80. Les ports suivants sont facultatifs :
@@ -38,6 +43,7 @@ Il faut rediriger certain port du contenaire vers l'hote pour y avoir accès. Il
 1886 : MQTT
 162 : SNMP
 4025 : DSC
+
 
 # Exemple de ligne de commande
 
