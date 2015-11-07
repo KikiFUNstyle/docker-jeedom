@@ -1,4 +1,8 @@
 #/bin/bash
+if [ ! -d /var/lib/mysql/mysql ]; then
+  cp -R /var/lib/mysql.bak/* /var/lib/mysql/
+fi
+
 if [ ! -f /var/lib/mysql/ibdata1 ]; then
   echo "Init DB"
   rm /var/lib/mysql/ib*
