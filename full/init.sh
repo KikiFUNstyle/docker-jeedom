@@ -39,7 +39,6 @@ else
 	sed -i "s/#USERNAME#/${MYSQL_JEEDOM_USER}/g" /var/www/html/core/config/common.config.php
 	sed -i "s/#PASSWORD#/${MYSQL_JEEDOM_PASSWORD}/g" /var/www/html/core/config/common.config.php
 fi
-
 if [ ${JEEDOM_INSTALL} -eq 0 ]; then
 	php /var/www/html/install/install.php mode=force
 fi
