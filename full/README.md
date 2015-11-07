@@ -28,8 +28,8 @@ Pour que jeedom puisse accèder à tous les périphérique USB il faut les monte
 
 Pour pouvoir mettre à jour facilement le conteneur sans impact sur les données stockée il faut séparer les répertoires de données : 
 ````
--v /my/jeedom/data/html:/var/html/www
--v /my/jeedom/data/mysql:/var/lib/mysql
+-v /my/jeedom/data/html:/var/www/html
+-v /my/jeedom/data/mysql:/var/lib/mysql/jeedom
 
 ````
 
@@ -47,6 +47,6 @@ Il faut rediriger certain port du contenaire vers l'hote pour y avoir accès. Il
 
 # Exemple de ligne de commande
 
-docker run --name some-jeedom --privileged -v /dev/tty*:/dev -v /my/jeedom/data/html:/var/html/www -v /my/jeedom/data/mysql:/var/lib/mysql -e ROOT_PASSWORD=todo -p 9080:80 -p 9022:22 jeedom/jeedom-full
+docker run --name some-jeedom --privileged -v /dev/tty*:/dev -v /my/jeedom/data/html:/var/www/html -v /my/jeedom/data/mysql:/var/lib/mysql/jeedom -e ROOT_PASSWORD=todo -p 9080:80 -p 9022:22 jeedom/jeedom-full
 
 Votre jeedom sera accessible en faisant IP_CONTENEUR:9080

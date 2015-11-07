@@ -16,8 +16,6 @@ RUN chmod +x /root/initdb.sh
 ADD init.sh /root/init.sh
 RUN chmod +x /root/init.sh
 
-VOLUME /var/lib/mysql
-
 CMD ["/root/init.sh"]
 
 EXPOSE 22 80 162 1886 4025 17100 10000 
