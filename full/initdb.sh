@@ -5,13 +5,13 @@ if [ ! -f /var/lib/mysql/ibdata1 ]; then
   rm /var/lib/mysql/ib*
   /usr/bin/mysqld_safe &
   sleep 10s
-  echo "GRANT ALL ON *.* TO $ADMIN_USER@'%' IDENTIFIED BY '$ADMIN_PASSWORD' WITH GRANT OPTION; FLUSH PRIVILEGES" | mysql
+  echo "GRANT ALL ON *.* TO $ADMIN_USER@'%' IDENTIFIED BY '$ADMIN_PASSWORD' WITH GRANT OPTION; FLUSH PRIVILEGES" | mysql -uroot -proot
   if [ $?  -ne 0 ]; then
     echo 'Error on start mysqlsafe'
     exit 1
   fi
   DEBIAN_PASS=$(grep password /etc/mysql/debian.cnf | head -n 1 | cut -f3 -d ' ')
-  echo "GRANT ALL ON *.* TO 'debian-sys-maint'@'%' IDENTIFIED BY '$DEBIAN_PASS' WITH GRANT OPTION; FLUSH PRIVILEGES" | mysql
+  echo "GRANT ALL ON *.* TO 'debian-sys-maint'@'%' IDENTIFIED BY '$DEBIAN_PASS' WITH GRANT OPTION; FLUSH PRIVILEGES" | mysql -u\"$ADMIN_USER\" -p\"$ADMIN_PASSWORD\"
   killall mysqld
   sleep 10s
   echo "Set owner and group to current mysql user and group"
