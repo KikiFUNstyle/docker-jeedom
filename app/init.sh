@@ -1,5 +1,13 @@
 #!/bin/bash
 echo 'Start init'
+
+if [ -z ${ROOT_PASSWORD} ]; then
+	echo "Use default password : jeedom"
+	echo "root:jeedom" | chpasswd
+else
+	echo "root:${ROOT_PASSWORD}" | chpasswd
+fi
+
 JEEDOM_INSTALL=1
 if [ -d /var/www/html/core ]; then
 	echo 'Jeedom is already install'
