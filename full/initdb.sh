@@ -1,6 +1,6 @@
 #/bin/bash
 if [ ! -f /var/lib/mysql/ibdata1 ]; then
-  echo "Init db"
+  echo "Init DB"
   rm /var/lib/mysql/ib*
   service mysql start
   if [ ! -z ${DB_NAME+x} ] && [ ! -z ${DB_USER+x} ] && [ ! -z ${DB_PASSWORD+x} ]; then
