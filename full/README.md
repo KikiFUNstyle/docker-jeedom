@@ -5,4 +5,4 @@ MYSQL_PORT
 MYSQL_JEEDOM_USER
 MYSQL_JEEDOM_DBNAME
 
-docker run --name some-jeedom --privileged -v /my/jeedom/data:/var/html/www -e MYSQL_JEEDOM_PASSWORD=todo -e MYSQL_HOST=todo -e MYSQL_PORT=todo -e MYSQL_JEEDOM_USER=todo -e MYSQL_JEEDOM_DBNAME=todo -p 80:9080 -p 22:9022 jeedom/docker
+docker run --name some-jeedom --privileged -v /my/jeedom/data:/var/html/www -p 9180:80 -p 9122:22 jeedom/jeedom-full

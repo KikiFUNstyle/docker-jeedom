@@ -9,9 +9,7 @@ RUN apt-get update; apt-get install -y \
     mysql-server \
     mysql-client
 
-RUN rm -rf /var/lib/mysql/*
-
-ENV MYSQL_DEFAULTS_FILE /mysql-defaults.cnf
+RUN rm -rf /var/lib/mysql/ib*
 
 ADD initdb.sh /root/initdb.sh
 RUN chmod +x /root/initdb.sh
