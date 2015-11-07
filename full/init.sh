@@ -22,8 +22,6 @@ else
 	MYSQL_JEEDOM_DBNAME="jeedom"
 	MYSQL_JEEDOM_USER="jeedom"
 	MYSQL_JEEDOM_PASSWORD=$(cat /dev/urandom | tr -cd 'a-f0-9' | head -c 15)
-	ADMIN_USER="root"
-	export ADMIN_USER
 	ADMIN_PASSWORD=$(cat /dev/urandom | tr -cd 'a-f0-9' | head -c 15)
 	export ADMIN_PASSWORD
 	DB_NAME=${MYSQL_JEEDOM_DBNAME}
@@ -32,8 +30,6 @@ else
 	export DB_USER
 	DB_PASSWORD=${MYSQL_JEEDOM_PASSWORD}
 	export DB_PASSWORD
-	BIND_ADDRESS="127.0.0.1"
-	export BIND_ADDRESS
 	echo 'Init DB'
 	./initdb.sh
 	echo 'Start DB'

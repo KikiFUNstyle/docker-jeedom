@@ -86,6 +86,7 @@ ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 RUN a2enmod proxy_http
 ADD 000-default.conf /etc/apache2/sites-available/000-default.conf
 RUN cd /etc/apache2/sites-available && a2ensite *
+RUN mkdir -p /etc/apache2/conf/jeedom
 
 ####################################################################JEEDOM#######################################################################################
 RUN echo "www-data ALL=(ALL) NOPASSWD: ALL" | (EDITOR="tee -a" visudo)
