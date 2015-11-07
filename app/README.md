@@ -51,4 +51,6 @@ Il faut rediriger certain port du contenaire vers l'hote pour y avoir accès. Il
 
 # Exemple de ligne de commande
 
-docker run --name some-jeedom --privileged -v /dev/tty*:/dev -v /my/jeedom/data:/var/html/www -e ROOT_PASSWORD=todo -e MYSQL_JEEDOM_PASSWORD=todo -e MYSQL_HOST=todo -e MYSQL_PORT=todo -e MYSQL_JEEDOM_USER=todo -e MYSQL_JEEDOM_DBNAME=todo -p 80:9080 -p 22:9022 jeedom/jeedom
+docker run --name some-jeedom --privileged -v /dev/tty*:/dev -v /my/jeedom/data:/var/html/www -e ROOT_PASSWORD=todo -e MYSQL_JEEDOM_PASSWORD=todo -e MYSQL_HOST=todo -e MYSQL_PORT=todo -e MYSQL_JEEDOM_USER=todo -e MYSQL_JEEDOM_DBNAME=todo -p 9080:80 -p 9022:22 jeedom/jeedom
+
+Votre jeedom sera accessible en faisant IP_CONTENEUR:9080

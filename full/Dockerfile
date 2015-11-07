@@ -16,6 +16,7 @@ RUN chmod +x /root/initdb.sh
 ADD init.sh /root/init.sh
 RUN chmod +x /root/init.sh
 
+VOLUME /var/lib/mysql
 
 CMD ["/root/init.sh"]
 
