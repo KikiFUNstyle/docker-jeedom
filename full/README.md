@@ -8,11 +8,11 @@ A la difference de l'image normal cette image inclus mysql
 
 ROOT_PASSWORD : mot de passe root SSH. Optionnel si non précisé le mot de passe sera jeedom. Il est cepedant fortement recommandé de le renseigner
 
-#Droits
+# Droits
 
 Il faut lancer le conteneur en mode privilège pour que celui-ci puisse acceder au périphérique (enOcena, Zwave, Edisio....)
 
-#Accès au préripherique USB
+# Accès au préripherique USB
 
 Pour que jeedom puisse accèder à tous les périphérique USB il faut les monter dans le conteneur
 ````
@@ -20,7 +20,7 @@ Pour que jeedom puisse accèder à tous les périphérique USB il faut les monte
 
 ````
 
-#Volume de données
+# Volume de données
 
 Pour pouvoir mettre à jour facilement le conteneur sans impact sur les données stockée il faut séparer les répertoires de données : 
 ````
@@ -29,7 +29,7 @@ Pour pouvoir mettre à jour facilement le conteneur sans impact sur les données
 
 ````
 
-#Ports
+# Ports
 
 Il faut rediriger certain port du contenaire vers l'hote pour y avoir accès. Il faut obligatoire rediriger le port 80. Les ports suivants sont facultatifs :
 22 : SSH
@@ -39,6 +39,6 @@ Il faut rediriger certain port du contenaire vers l'hote pour y avoir accès. Il
 162 : SNMP
 4025 : DSC
 
-#Exemple de ligne de commande
+# Exemple de ligne de commande
 
 docker run --name some-jeedom --privileged -v /dev/tty*:/dev -v /my/jeedom/data/html:/var/html/www -v /my/jeedom/data/mysql:/var/lib/mysql -e ROOT_PASSWORD=todo -p 80:9080 -p 22:9022 jeedom/jeedom-full

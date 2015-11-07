@@ -13,7 +13,7 @@ MYSQL_JEEDOM_USER : utilisateur pour la base de données
 MYSQL_JEEDOM_DBNAME : nom de la base de données
 ROOT_PASSWORD : mot de passe root SSH. Optionnel si non précisé le mot de passe sera jeedom. Il est cepedant fortement recommandé de le renseigner
 
-#Droits
+# Droits
 
 Il faut lancer le conteneur en mode privilège pour que celui-ci puisse acceder au périphérique (enOcena, Zwave, Edisio....)
 
@@ -25,7 +25,7 @@ Pour que jeedom puisse accèder à tous les périphérique USB il faut les monte
 
 ````
 
-#Volume de données
+# Volume de données
 
 Pour pouvoir mettre à jour facilement le conteneur sans impact sur les données stockée il faut séparer le répertoire de données : 
 ````
@@ -33,7 +33,7 @@ Pour pouvoir mettre à jour facilement le conteneur sans impact sur les données
 
 ````
 
-#Ports
+# Ports
 
 Il faut rediriger certain port du contenaire vers l'hote pour y avoir accès. Il faut obligatoire rediriger le port 80. Les ports suivants sont facultatifs :
 22 : SSH
@@ -43,6 +43,6 @@ Il faut rediriger certain port du contenaire vers l'hote pour y avoir accès. Il
 162 : SNMP
 4025 : DSC
 
-#Exemple de ligne de commande
+# Exemple de ligne de commande
 
 docker run --name some-jeedom --privileged -v /dev/tty*:/dev -v /my/jeedom/data:/var/html/www -e ROOT_PASSWORD=todo -e MYSQL_JEEDOM_PASSWORD=todo -e MYSQL_HOST=todo -e MYSQL_PORT=todo -e MYSQL_JEEDOM_USER=todo -e MYSQL_JEEDOM_DBNAME=todo -p 80:9080 -p 22:9022 jeedom/jeedom
