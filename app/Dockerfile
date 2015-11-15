@@ -91,8 +91,6 @@ RUN mkdir -p /etc/apache2/conf/jeedom
 ####################################################################JEEDOM#######################################################################################
 RUN echo "www-data ALL=(ALL) NOPASSWD: ALL" | (EDITOR="tee -a" visudo)
 RUN echo "* * * * * su --shell=/bin/bash - www-data -c '/usr/bin/php /var/www/html/core/php/jeeCron.php' >> /dev/null" | crontab -
-ADD jeedom /etc/init.d/jeedom
-RUN chmod +x /etc/init.d/jeedom
 ADD https://github.com/jeedom/core/archive/cache.zip /root/jeedom.zip
 
 ADD bashrc /root/.bashrc
