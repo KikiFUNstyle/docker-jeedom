@@ -38,6 +38,7 @@ if [ ${JEEDOM_INSTALL} -eq 0 ]; then
 fi
 
 echo 'All init complete'
+chmod 777 /dev/tty*
 chmod 755 -R /var/www/html/
 chown -R www-data:www-data /var/www/html/
 
