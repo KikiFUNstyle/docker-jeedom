@@ -12,9 +12,6 @@ RUN apt-get update; apt-get install -y \
 RUN service mysql stop  >> /dev/null
 RUN rm -rf /var/lib/mysql/*
 
-RUN mkdir -p /var/lib/mysql.bak
-RUN cp -R /var/lib/mysql/* /var/lib/mysql.bak/
-
 ADD initdb.sh /root/initdb.sh
 RUN chmod +x /root/initdb.sh
 ADD init.sh /root/init.sh
