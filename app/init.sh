@@ -14,7 +14,7 @@ else
 	echo 'Jeedom not found install it'
 	rm -rf /root/core-*
 	wget https://github.com/jeedom/core/archive/beta.zip -O /tmp/jeedom.zip
-	unzip -q jeedom.zip -d /root
+	unzip -q /tmp/jeedom.zip -d /root/
 	cp -R /root/core-*/ /var/www/html/
 fi
 
