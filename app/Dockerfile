@@ -65,6 +65,7 @@ RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-di
 RUN rm /usr/bin/php
 RUN ln -s /usr/local/bin/php /usr/bin/php 
 RUN curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
+RUN echo 'max_execution_time = 300' > /usr/local/etc/php/php.ini
 
 ####################################################################OPENZWAVE#######################################################################################
 
