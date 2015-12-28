@@ -29,8 +29,5 @@ service cron start
 echo 'Launch apache2'
 service apache2 start
 
-echo 'Launch nodejs jeedom'
-service jeedom start
-
 /usr/bin/supervisord
 
