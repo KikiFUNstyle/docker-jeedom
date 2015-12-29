@@ -71,6 +71,7 @@ RUN curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/
 ADD https://raw.githubusercontent.com/jeedom/plugin-openzwave/master/ressources/install.sh /root/openzwave_install.sh
 RUN chmod +x /root/openzwave_install.sh
 RUN /root/openzwave_install.sh
+RUN rm /root/openzwave_install.sh
 
 ####################################################################SYSTEM#######################################################################################
 
@@ -87,7 +88,7 @@ RUN a2enmod proxy_http
 
 ####################################################################JEEDOM#######################################################################################
 RUN echo "www-data ALL=(ALL) NOPASSWD: ALL" | (EDITOR="tee -a" visudo)
-RUN echo "* * * * * su --shell=/bin/bash - www-data -c '/usr/bin/php /var/www/jeedom/core/php/jeeCron.php' >> /dev/null" | crontab -
+RUN echo "* * * * * su --shell=/bin/bash - www-data -c '/usr/bin/php /var/www/core/php/jeeCron.php' >> /dev/null" | crontab -
 
 ADD bashrc /root/.bashrc
 ADD init.sh /root/init.sh
